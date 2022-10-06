@@ -34,6 +34,10 @@ class PauseSubState extends MusicBeatSubstate
 		super();
 		if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
 		
+			if(PlayState.chartingMode)
+		{
+			menuItemsOG.insert(2, 'Toggle Practice Mode');
+			menuItemsOG.insert(3, 'Toggle Botplay');
 		}
 		menuItems = menuItemsOG;
 
