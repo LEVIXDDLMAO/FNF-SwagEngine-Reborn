@@ -2180,9 +2180,6 @@ class PlayState extends MusicBeatState
 			scoreTxt.text = 'Score: ' + songScore + ' // Combo Breaks: ' + songMisses + ' // Rating: ' + ratingName;
 		} else {
 			scoreTxt.text = 'Score: ' + songScore + ' // Combo Breaks: ' + songMisses + ' // Rating: ' + ratingName + ' (' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%)' + ' - ' + ratingFC;//peeps wanted no integer rating
-		} else {
-			Rating: ' + ratingName + ' // Combo Breaks: ' + songMisses + '  // scoreTxt.text = Score: ' + songScore + '
-		}
 
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
