@@ -79,10 +79,10 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-			['Swag Engine Reborn Team],
+			['Swag Engine Reborn Team'],
 			['LeviXDD',		'b3Bru',		'Main Programmer of Swag Engine Reborn',						'https://github.com/LEVIXDDLMAO',	'444444'],
 			[''],
-			['Cool people!'],
+			['Cool people'],
             ['MemeHoovy',           'memehoovy',        "Made MemeHoovy Engine and my best friend",                                      'https://twitter.com/meme_hoovy',      'C30085'],
 			['EliteMasterEric',		'mastereric',		'this man noticed me ',										'https://twitter.com/EliteMasterEric',	'FFBD40'],
 			[''],
