@@ -88,6 +88,14 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);
+
+		var option:Option = new Option('Note Skin',
+			"What note skin do you prefer for playing?",
+			'noteSkinSettings',
+			'string',
+			'Classic',
+			['Classic', 'Circle', 'B3', 'Neo', 'Tabi', 'StepMaina', 'Kapi']);
+		addOption(option);
 		
 		#if !mobile
 		var option:Option = new Option('FPS Counter',
