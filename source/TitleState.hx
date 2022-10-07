@@ -581,9 +581,8 @@ class TitleState extends MusicBeatState
 				// credTextShit.visible = true;
 				case 3:
 					#if SWAG_WATERMARKS
-					addMoreText('Shadow Mario', 15);
-					addMoreText('RiverOaken', 15);
-					addMoreText('bb-panzu', 15);
+					addMoreText('LeviXDD', 15);
+					addMoreText('MemeHoovy', 15);
 					#else
 					addMoreText('present');
 					#end
