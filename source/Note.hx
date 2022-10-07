@@ -243,7 +243,6 @@ class Note extends FlxSprite
 					}
 				}
 			}
-			}
 		}
 
 		var animName:String = null;
