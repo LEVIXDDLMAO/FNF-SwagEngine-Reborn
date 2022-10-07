@@ -20,6 +20,7 @@ class ClientPrefs {
 	public static var camZooms:Bool = true;
 	public static var hideHud:Bool = false;
 	public static var noteOffset:Int = 0;
+	public static var noteSkinSettings:String = 'Classic';
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
@@ -95,6 +96,7 @@ class ClientPrefs {
 		FlxG.save.data.noteOffset = noteOffset;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
+		FlxG.save.data.noteSkinSettings = noteSkinSettings;
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
@@ -215,6 +217,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.controllerMode != null) {
 			controllerMode = FlxG.save.data.controllerMode;
+        }
+		if(FlxG.save.data.noteSkinSettings != null) {
+			noteSkinSettings = FlxG.save.data.noteSkinSettings;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
 		{
