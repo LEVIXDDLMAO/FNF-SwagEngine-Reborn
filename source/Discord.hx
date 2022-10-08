@@ -41,7 +41,7 @@ class DiscordClient
 	static function onReady()
 	{
 		DiscordRpc.presence({
-			details: "In the Menus",
+			details: "Entering The Swagest Engine ",
 			state: null,
 			largeImageKey: 'icon',
 			largeImageText: "Swag Engine"
