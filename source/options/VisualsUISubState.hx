@@ -97,7 +97,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			['Classic', 'Circle', 'B3', 'Neo', 'Tabi', 'StepMaina', 'Kapi']);
 		addOption(option);
 		
-		#if !mobile
 		var option:Option = new Option('FPS Counter',
 			'If unchecked, hides FPS Counter.',
 			'showFPS',
@@ -105,7 +104,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 		option.onChange = onChangeFPSCounter;
-		#end
 
 		super();
 	}
