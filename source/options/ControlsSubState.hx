@@ -57,11 +57,9 @@ class ControlsSubState extends MusicBeatSubstate {
 		['Up', 'volume_up'],
 		['Down', 'volume_down'],
 		[''],
-		['DEBUG'],
+		['Extra Shit'],
 		['Key 1', 'debug_1'],
 		['Key 2', 'debug_2'],
-		[''],
-		['Extra Shit'],
 		['Taunt' 'taunt']
 	];
 
