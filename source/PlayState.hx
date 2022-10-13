@@ -262,6 +262,8 @@ class PlayState extends MusicBeatState
 	// Less laggy controls
 	private var keysArray:Array<Dynamic>;
 
+	private var tauntKey:Array<FlxKey>;
+
 	override public function create()
 	{
 		#if MODS_ALLOWED
@@ -273,6 +275,8 @@ class PlayState extends MusicBeatState
 
 		debugKeysChart = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 		debugKeysCharacter = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_2'));
+
+		tauntKey = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('taunt'));		
 
 		keysArray = [
 			ClientPrefs.copyKey(ClientPrefs.keyBinds.get('note_left')),
@@ -1029,11 +1033,6 @@ class PlayState extends MusicBeatState
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
-		// if (SONG.song == 'South')
-		// FlxG.camera.alpha = 0.7;
-		// UI_camera.zoom = 1;
-
-		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 
 
@@ -2042,12 +2041,15 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		/*if (FlxG.keys.justPressed.NINE)
-		{
-			iconP1.swapOldIcon();
-		}*/
-
 		callOnLuas('onUpdate', [elapsed]);
+
+		if (FlxG.keys.anyJustPressed(tauntKey)) {
+			if (boyfriend.animOffsets.exists('hey')){
+				boyfriend.playAnim('hey', true);
+				boyfriend.specialAnim = true;
+				boyfriend.heyTimer = 0.6;
+			}
+		}
 
 		switch (curStage)
 		{
@@ -2195,21 +2197,11 @@ class PlayState extends MusicBeatState
 				persistentDraw = true;
 				paused = true;
 
-				// 1 / 1000 chance for Gitaroo Man easter egg
-				/*if (FlxG.random.bool(0.1))
-				{
-					// gitaroo man easter egg
-					cancelMusicFadeTween();
-					CustomFadeTransition.nextCamera = camOther;
-					MusicBeatState.switchState(new GitarooPause());
-				}
-				else {*/
 				if(FlxG.sound.music != null) {
 					FlxG.sound.music.pause();
 					vocals.pause();
 				}
 				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
-				//}
 		
 				#if desktop
 				DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
@@ -2221,9 +2213,6 @@ class PlayState extends MusicBeatState
 		{
 			openChartEditor();
 		}
-
-		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
-		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 
 		var mult:Float = FlxMath.lerp(1, iconP1.scale.x, CoolUtil.boundTo(1 - (elapsed * 9), 0, 1));
 		iconP1.scale.set(mult, mult);
